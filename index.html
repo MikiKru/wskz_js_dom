@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript DOM</title>
+</head>
+<body>
+    <h1> Witaj w lekcji JavaScript DOM </h1>
+    <div>
+        <h2> Czego się nauczysz? </h2>
+        <p> Model DOM </p>
+        <p> Metody wyszukiwania elementów w modelu DOM </p>
+        <p class="atributes"> Atrybuty w modelu DOM</p>
+        <p id="properties"> Właściwości w modelu DOM</p>
+    </div>
+    <script>
+        const h1 = document.getElementsByTagName("h1");
+        console.log(h1);
+        const p = document.getElementsByTagName("p");
+        console.log(p);
+        const h2 = document.querySelector("h2");
+        console.log(h2);
+        const p_atribute = document.getElementsByClassName("atributes");
+        const p_properties = document.getElementById("properties");
+        console.log(p_atribute);
+        console.log(p_properties);
+        const p_atribute_qs = document.querySelector(".atributes");
+        const p_properties_qs = document.querySelector("#properties");
+        console.log(p_atribute_qs);
+        console.log(p_properties_qs);
+
+    </script>
+</body>
+</html>
