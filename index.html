@@ -37,6 +37,10 @@
         // get i set Attribute
         console.log(p_atribute_qs.getAttribute("class"));
         console.log("URL:" + document.querySelector("#wskz_ref").getAttribute("href"));
+        // p_properties_qs.removeAttribute("id");
+        p_properties_qs.setAttribute("class", "prop-class")
+        p_properties_qs.setAttribute("id", "new_prop")
+        console.log(p_properties_qs.outerHTML);
         // tagname
         console.log("TAG: " + document.querySelector("#wskz_ref").tagName);
 
