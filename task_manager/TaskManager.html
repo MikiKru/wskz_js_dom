@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>TO DO LIST</title>
+
+</head>
+<body>
+<form class="form" id="todoForm">
+    <div class="form-row">
+        <label class="form-label" for="todoMessage">Podaj treść zadania</label>
+        <textarea type="text" class="form-message" name="todoMessage" id="todoMessage"></textarea>
+        <label class="form-label" for="todoMessage">Wybierz termin wykonania</label>
+        <input type="date" class="form-date" name="todoDate" id="todoDate">
+        <label class="form-label" for="todoMessage">Wybierz typ zadania</label>
+        <select class="form-type">
+            <option> nauka </option>
+            <option> praktyka </option>
+            <option> testowanie </option>
+        </select>
+
+    </div>
+    <div class="form-row">
+        <input type="submit" value="dodaj" class="button form-button">
+    </div>
+</form>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const todoForm = document.querySelector("#todoForm");
+        const todoTextarea = todoForm.querySelector('.form-message');
+        const todoDate = todoForm.querySelector('.form-date');
+        const todoType = todoForm.querySelector('.form-type');
+
+
+        todoForm.addEventListener("submit", e => {
+            e.preventDefault();
+            if (todoTextarea.value !== "" && todoDate.value !== "") {
+                todoTextarea.style.setProperty("background-color", "white");
+                todoDate.style.setProperty("background-color", "white");
+                console.log("Dodaję zadanie do listy: " + todoTextarea.value);
+                const task = document.createElement("div");
+                task.innerHTML = "<p> "+todoTextarea.value + " </p> <p> " + todoDate.value + "</p> <p> "+ todoType.value +
+                    " </p> <button class='btn-delete'> usuń </button> <hr>";
+                task.style.setProperty("font-weight", "bold");
+                task.style.setProperty("margin-left", "2rem");
+                todoForm.before(task);
+                todoTextarea.value = "";
+                todoDate.value = "";
+            } else {
+                todoTextarea.style.setProperty("background-color", "orange");
+                todoDate.style.setProperty("background-color", "orange");
+            }
+        });
+        document.addEventListener("click", e => {
+            if(e.target.classList.contains("btn-delete")){
+                e.target.closest("div").remove();
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
